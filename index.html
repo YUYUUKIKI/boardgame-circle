@@ -7,47 +7,111 @@
   <meta name="description" content="ボードゲームサークルの紹介ページ" />
   <style>
     :root{
-      --bg:#f5f7f6; /* very light */
+      --bg:#faf7f2; /* 温かいベージュ系 */
       --card:#ffffff;
       --muted:#6b7a76;
-      --accent:#7aa39a; /* calm green-teal */
-      --accent-2:#8aa8c3; /* calm blue */
+      --accent:#a6b8a0; 
+      --accent-2:#b7c7df; 
       --shadow: 0 6px 18px rgba(25,40,34,0.06);
       --radius:14px;
       --maxwidth:1100px;
       --gap:20px;
       font-family: "Yu Gothic UI", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
     }
+
     *{box-sizing:border-box}
-    body{background:linear-gradient(180deg,var(--bg),#eef3f2);color:#24302e;margin:0;line-height:1.6}
+    body{
+      background:linear-gradient(180deg,var(--bg),#f3ece4); 
+      color:#24302e;
+      margin:0;
+      line-height:1.6;
+    }
     .wrap{max-width:var(--maxwidth);margin:36px auto;padding:28px}
 
     header{display:flex;align-items:center;gap:18px}
-    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)}
+    .logo{
+      width:72px;height:72px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:700;font-size:20px;
+      box-shadow:var(--shadow);
+    }
     h1{margin:0;font-size:24px}
     p.lead{color:var(--muted);margin:6px 0 0}
 
-    /* hero card */
-    .hero{margin-top:22px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:center}
+    /* hero card (背景ぼかし付き) */
+    .hero{
+      margin-top:22px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:24px;
+      align-items:center;
+
+      /* 背景画像ブラー */
+      background: 
+        linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+        url('circle-bg.jpg');
+      background-size:cover;
+      backdrop-filter: blur(6px);
+    }
+
     .hero .about h2{margin:0 0 8px;font-size:18px}
     .hero .about p{margin:0;color:var(--muted)}
     .hero .meta{display:flex;flex-direction:column;gap:10px}
-    .pill{background:#f1f6f5;border-radius:999px;padding:8px 12px;color:var(--muted);font-size:13px;display:inline-block}
+    .pill{
+      background:#f1f6f5;
+      border-radius:999px;
+      padding:8px 12px;
+      color:var(--muted);
+      font-size:13px;
+      display:inline-block;
+    }
 
-    /* games grid */
-    section.games{margin-top:28px}
-    .games-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-    .game{background:var(--card);border-radius:12px;padding:14px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
-    .game img{width:96px;height:96px;border-radius:8px;object-fit:cover;background:#eef3f2}
+    /* games section （背景写真＋ブラー） */
+    section.games{
+      margin-top:28px;
+      padding:24px;
+      border-radius:16px;
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+        url('games-bg.jpg');
+      background-size:cover;
+      backdrop-filter: blur(6px);
+    }
+
+    .games-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+    }
+    .game{
+      background:var(--card);
+      border-radius:12px;
+      padding:14px;
+      box-shadow:var(--shadow);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .game img{
+      width:96px;height:96px;border-radius:8px;object-fit:cover;background:#eef3f2;
+    }
     .game h3{margin:0;font-size:16px}
     .game p{margin:6px 0 0;color:var(--muted);font-size:14px}
     .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-    .tag{background:#f3fbf9;border-radius:999px;padding:6px 10px;font-size:12px;color:#2d554f;border:1px solid rgba(43,82,76,0.06)}
+    .tag{
+      background:#f3fbf9;border-radius:999px;
+      padding:6px 10px;font-size:12px;color:#2d554f;
+      border:1px solid rgba(43,82,76,0.06);
+    }
 
-    /* footer */
     footer{margin-top:34px;text-align:center;color:var(--muted);font-size:13px}
 
-    /* responsive */
     @media (max-width:900px){
       .hero{grid-template-columns:1fr}
       .games-grid{grid-template-columns:repeat(2,1fr)}
@@ -99,75 +163,81 @@
       <p style="margin:0 0 18px;color:var(--muted)">全５０種ほどのボードゲーム！その一部を紹介します！</p>
 
       <div class="games-grid">
-        <!-- Replace image src and text with real data -->
+
+        <!-- ハリガリ -->
         <article class="game">
           <img src="760618.jpg" alt="ハリガリ" />
           <div>
             <h3>ハリガリ</h3>
             <p>果物カードを数えてベルをたたく瞬発系ゲーム</p>
             <div class="tags">
-              <span class="tag">プレイ人数: 2-6</span>
-              <span class="tag">時間: 10-20分</span>
+              <span class="tag">2-6人</span>
+              <span class="tag">10-20分</span>
             </div>
           </div>
         </article>
 
+        <!-- ヘルパゴス -->
         <article class="game">
           <img src="22717021.jpg" alt="ヘルパゴス" />
           <div>
             <h3>ヘルパゴス</h3>
             <p>島から脱出を目指す協力×裏切りサバイバル</p>
             <div class="tags">
-              <span class="tag">プレイ人数: 3-12</span>
-              <span class="tag">時間: 30分</span>
+              <span class="tag">3-12人</span>
+              <span class="tag">30分</span>
             </div>
           </div>
         </article>
 
+        <!-- シークエンス -->
         <article class="game">
           <img src="065476.jpg" alt="シークエンス" />
           <div>
             <h3>シークエンス</h3>
             <p>カードで陣地を広げる戦略ボードゲーム</p>
             <div class="tags">
-              <span class="tag">プレイ人数: 2-12</span>
-              <span class="tag">時間: 20-30分</span>
+              <span class="tag">2-12人</span>
+              <span class="tag">20-30分</span>
             </div>
           </div>
         </article>
 
+        <!-- コルトエクスプレス -->
         <article class="game">
           <img src="2133451.jpg" alt="コルトエクスプレス" />
           <div>
             <h3>コルトエクスプレス</h3>
             <p>西部の列車で財宝を奪い合うアクションゲーム</p>
             <div class="tags">
-              <span class="tag">プレイ人数: 2-6</span>
-              <span class="tag">時間: 30-40分</span>
+              <span class="tag">2-6人</span>
+              <span class="tag">30-40分</span>
             </div>
           </div>
         </article>
 
+        <!-- モダンアート -->
         <article class="game">
           <img src="25488530.jpg" alt="モダンアート" />
           <div>
             <h3>モダンアート</h3>
             <p>絵画の価値を競りで操作する名作オークション！</p>
             <div class="tags">
-              <span class="tag">プレイ人数: 3-5</span>
-              <span class="tag">時間: 45-60分</span>
+              <span class="tag">3-5人</span>
+              <span class="tag">45-60分</span>
             </div>
           </div>
         </article>
 
+        <!-- それは俺の魚だ！ -->
         <article class="game">
           <img src="27134086.jpg" alt="それは俺の魚だ！" />
           <div>
             <h3>それは俺の魚だ！</h3>
             <p>氷タイルを奪い合うペンギンの陣取りゲーム</p>
             <div class="tags">
-              <span class="tag">プレイ人数: 2-4</span>
-              <span class="tag">時間: 15分</span>
+              <span class="tag">2-4人</span>
+              <span class="tag">15分</span>
             </div>
           </div>
         </article>
@@ -179,12 +249,5 @@
       <a href="https://x.com/mgubodoge" target="_blank">Twitterはこちら</a>
     </footer>
   </div>
-
-  <!--
-    使い方メモ（編集用）
-    - ボドゲのカードは <article class="game"> を複製して増やせます。
-    - 画像は /images/game1.jpg のように差し替えてください。
-    - 見出し・段落はすべてダミーテキストなので置き換えてください。
-  -->
 </body>
 </html>
